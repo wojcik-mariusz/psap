@@ -1,1 +1,6 @@
-print("hello world")
+from flask_template import create_app
+
+app = create_app()
+
+if __name__ == "__main__":
+    app.run()

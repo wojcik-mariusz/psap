@@ -21,7 +21,7 @@ class NewEvent(FlaskForm):
     new_event_town = StringField("Town:", validators=[data_required()])
     new_event_street = StringField("Street:")
     new_event_street_number = IntegerField("Number:", validators=[data_required()])
-    new_event_type_of_emergency_services_needed = MultiCheckboxField('Label', choices=["Straż Pożarna", "Policja", "Ratownictwo medyczne"])
+    new_event_type_of_emergency_services_needed = MultiCheckboxField('Forward event to:', choices=["Straż Pożarna", "Policja", "Ratownictwo medyczne"])
     new_event_caller_telephone_number = IntegerField("Telephone number:", validators=[data_required(), length(min=9)])
     new_event_caller_name = StringField("Caller name:")
     new_event_caller_surname = StringField("Caller surname:")

@@ -11,10 +11,10 @@ base
     {{ form.hidden_tag() }}
         <p>
             {{ form.new_event_voivodeship.label }}
-            {{ form.new_event_voivodeship(size=10) }}
+            {{ form.new_event_voivodeship(size=3) }}
         </p><p>
             {{ form.new_event_district.label }}
-            {{ form.new_event_district(size=10) }}
+            {{ form.new_event_district(size=20) }}
         </p>
         <p>
             {{ form.new_event_community.label }}
@@ -32,9 +32,9 @@ base
             {{ form.new_event_street_number.label }}
             {{ form.new_event_street_number(size=20) }}
         </p>
-        <p>
+        <p align="center">
             {{ form.new_event_type_of_emergency_services_needed.label}}
-            {{ form.new_event_type_of_emergency_services_needed(size=20)}}
+            {{ form.new_event_type_of_emergency_services_needed(rows=3, multiple=True)}}
         </p>
         <p>
             {{ form.new_event_caller_telephone_number.label }}
@@ -47,6 +47,10 @@ base
         <p>
             {{ form.new_event_caller_surname.label }}
             {{ form.new_event_caller_surname(size=20) }}
+        </p>
+        <p>
+            {{ form.new_event_confirm_button(size=20) }}
+
         </p>
     </form>
 

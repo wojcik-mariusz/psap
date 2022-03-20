@@ -1,2 +1,6 @@
-.idea/
+*.idea
 __pychache__/
+flask_template/__pycache__/
+flask_template/server/__pycache__/
+*.pyc
+.gitignore

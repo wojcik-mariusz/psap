@@ -1,4 +1,4 @@
-from flask import render_template, request, make_response
+from flask import render_template, make_response
 
 from . import SERVER_BLUEPRINT, ERROR_HANDLER_BLUEPRINT
 from flask_template.server.forms import NewEvent
@@ -21,6 +21,7 @@ def add_new_event():
             town=form.new_event_town.data,
             street=form.new_event_street.data,
             street_number=form.new_event_street_number.data,
+            description=form.new_event_description.data,
             list_of_emergency_services_needed=form.new_event_type_of_emergency_services_needed.data,
             caller_telephone_number=form.new_event_caller_telephone_number.data,
             caller_name=form.new_event_caller_name.data,

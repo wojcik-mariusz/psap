@@ -1,8 +1,9 @@
-from typing import NoReturn
+from typing import NoReturn, List
 from datetime import datetime
 
-from db_tools import Events
+from flask_template.db.db_tools import Events
 from . import DB
+
 
 def insert_new_event(
         voivodeship: str,
@@ -11,15 +12,16 @@ def insert_new_event(
         town: str,
         street: str,
         street_number: int,
-        fw_to_police: bool,
-        fw_to_paramedic: bool,
-        fw_to_fire_service: bool,
+        list_of_emergency_services_needed: List[str],
         caller_telephone_number: int,
         caller_name: str,
         caller_surname: str
 ) -> NoReturn:
+    fw_to_fire_service = True if 1 in list_of_emergency_services_needed else False
+    fw_to_police = True if 2 in list_of_emergency_services_needed else False
+    fw_to_paramedic = True if 3 in list_of_emergency_services_needed else False
     event = Events(
-        event_date=datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+        event_date=datetime.now(),
         voivodeship=voivodeship,
         district=district,
         community=community,

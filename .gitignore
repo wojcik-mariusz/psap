@@ -4,3 +4,6 @@ flask_template/__pycache__/
 flask_template/server/__pycache__/
 *.pyc
 .gitignore
+.DS_Store
+flask_template/.DS_Store
+flask_template/db/event_db.db

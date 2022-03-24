@@ -1,20 +1,19 @@
-from flask import render_template, request
+from flask import render_template, request, make_response
 
-from . import SERVER_BLUEPRINT
+from . import SERVER_BLUEPRINT, ERROR_HANDLER_BLUEPRINT
 from flask_template.server.forms import NewEvent
 from flask_template.db.services import insert_new_event
 
-
+#TODO errors
 @SERVER_BLUEPRINT.route("/")
 def home():
     form = NewEvent()
     return render_template("index.html", form=form)
 
-
 @SERVER_BLUEPRINT.route("/add-new-event", methods=['GET', 'POST'])
 def add_new_event():
     form = NewEvent()
-    if request.method == 'POST':
+    if form.validate_on_submit():
         insert_new_event(
             voivodeship=form.new_event_voivodeship.data,
             district=form.new_event_district.data,
@@ -28,3 +27,9 @@ def add_new_event():
             caller_surname=form.new_event_caller_surname.data
         )
     return render_template("add-new-event.html", form=form)
+
+
+@ERROR_HANDLER_BLUEPRINT.errorhandler(404)
+def page_not_found(_):
+    '''Page not found'''
+    return make_response(render_template("404.html", title="404", content="Page not found"), 404)

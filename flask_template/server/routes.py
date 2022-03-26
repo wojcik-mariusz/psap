@@ -18,7 +18,6 @@ def home():
 def add_new_event():
     form = NewEvent()
     if form.validate_on_submit():
-        print('ererer')
         event = insert_new_event(
             voivodeship=form.new_event_voivodeship.data,
             district=form.new_event_district.data,
@@ -27,11 +26,14 @@ def add_new_event():
             street=form.new_event_street.data,
             street_number=form.new_event_street_number.data,
             description=form.new_event_description.data,
-            list_of_emergency_services_needed=form.new_event_type_of_emergency_services_needed.data,
+            fw_to_police=form.new_event_fw_to_police.data,
+            fw_to_paramedic=form.new_event_fw_to_paramedic.data,
+            fw_to_fire_service=form.new_event_fw_to_fire_service.data,
             caller_telephone_number=form.new_event_caller_telephone_number.data,
             caller_name=form.new_event_caller_name.data,
             caller_surname=form.new_event_caller_surname.data
         )
+        print(event)
         DB.session.add(event)
         DB.session.commit()
 

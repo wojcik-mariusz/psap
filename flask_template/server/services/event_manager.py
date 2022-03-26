@@ -1,23 +1,12 @@
-from typing import NoReturn, List
+from typing import NoReturn
 from datetime import datetime
 
 from flask_template.db.db_tools import Events
 
 
-def chose_duty(list_of_emergency_services_needed: List[int]):
-    print(list_of_emergency_services_needed[0])
-    print(type(list_of_emergency_services_needed[0]))
-    chose_duty = {1: "fw_to_fire_service", 2: "fw_to_police", 3: "fw_to_paramedic"}
-            # fw_to_fire_service: True
-    print({chose_duty[list_of_emergency_services_needed[0]]: True})
-    print({f"{chose_duty[list_of_emergency_services_needed[0]]}": True})
-    return {f"{chose_duty[list_of_emergency_services_needed[0]]}": True}
-
 def insert_new_event(**kwargs) -> NoReturn:
     """TODD in Sphinx format"""
-    emergency = chose_duty(kwargs["list_of_emergency_services_needed"])
-    print(emergency)
-    return Events(event_date=datetime.now, **emergency, **kwargs)
+    return Events(event_date=datetime.now, **kwargs)
 
 
 # def get_all_list_event() -> List[str]:

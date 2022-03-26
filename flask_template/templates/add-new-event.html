@@ -36,9 +36,17 @@ base
             {{ form.new_event_description.label }}
             {{ form.new_event_description(size=30) }}
         </p>
-        <p align="center">
-            {{ form.new_event_type_of_emergency_services_needed.label}}
-            {{ form.new_event_type_of_emergency_services_needed(rows=3, multiple=True)}}
+        <p>
+            {{ form.new_event_fw_to_police.label }}
+            {{ form.new_event_fw_to_police(size=2) }}
+        </p>
+        <p>
+            {{ form.new_event_fw_to_paramedic.label }}
+            {{ form.new_event_fw_to_paramedic(size=2) }}
+        </p>
+        <p>
+            {{ form.new_event_fw_to_fire_service.label }}
+            {{ form.new_event_fw_to_fire_service(size=2) }}
         </p>
         <p>
             {{ form.new_event_caller_telephone_number.label }}

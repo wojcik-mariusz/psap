@@ -26,7 +26,7 @@ class NewEvent(FlaskForm):
     new_event_type_of_emergency_services_needed = MultiCheckboxField('Forward event to:',
                                                                      coerce=int,
                                                                      choices=[(1, "Straż Pożarna"), (2, "Policja"), (3, "Ratownictwo medyczne")])
-    new_event_caller_telephone_number = IntegerField("Telephone number:", validators=[data_required(), length(min=9)])
+    new_event_caller_telephone_number = IntegerField("Telephone number:", validators=[data_required()])
     new_event_caller_name = StringField("Caller name:")
     new_event_caller_surname = StringField("Caller surname:")
     new_event_confirm_button = SubmitField("Apply event")

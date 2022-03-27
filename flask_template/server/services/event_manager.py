@@ -6,7 +6,7 @@ from flask_template.db.db_tools import Events
 
 def insert_new_event(**kwargs) -> NoReturn:
     """TODD in Sphinx format"""
-    return Events(event_date=datetime.now, **kwargs)
+    return Events(event_date=datetime.now(), **kwargs)
 
 
 # def get_all_list_event() -> List[str]:

@@ -12,57 +12,37 @@ base
         <p>
             {{ form.new_event_voivodeship.label }}
             {{ form.new_event_voivodeship(size=3) }}
-        </p><p>
-            {{ form.new_event_district.label }}
-            {{ form.new_event_district(size=20) }}
         </p>
         <p>
-            {{ form.new_event_community.label }}
-            {{ form.new_event_community(size=20) }}
+            {{form.new_event_district.label}}
+            {{form.new_event_district(size=20)}}
         </p>
         <p>
-            {{ form.new_event_town.label }}
-            {{ form.new_event_town(size=20)}}
+            {{form.new_event_community.label}}
+            {{form.new_event_community(size=20)}}
         </p>
         <p>
-            {{ form.new_event_street.label }}
-            {{ form.new_event_street(size=20) }}
+            {{form.new_event_town.label}}
+            {{form.new_event_town(size=20)}}
         </p>
         <p>
-            {{ form.new_event_street_number.label }}
-            {{ form.new_event_street_number(size=20) }}
+            {{form.new_event_street.label}}
+            {{form.new_event_street(size=20)}}
         </p>
         <p>
-            {{ form.new_event_description.label }}
-            {{ form.new_event_description(size=30) }}
+            {{form.new_event_street_number.label}}
+            {{form.new_event_street_number(size=20)}}
         </p>
         <p>
-            {{ form.new_event_fw_to_police.label }}
-            {{ form.new_event_fw_to_police(size=2) }}
+            {{form.new_event_description.label}}
+            {{form.new_event_description(size=30)}}
         </p>
         <p>
-            {{ form.new_event_fw_to_paramedic.label }}
-            {{ form.new_event_fw_to_paramedic(size=2) }}
-        </p>
-        <p>
-            {{ form.new_event_fw_to_fire_service.label }}
-            {{ form.new_event_fw_to_fire_service(size=2) }}
-        </p>
-        <p>
-            {{ form.new_event_caller_telephone_number.label }}
-            {{ form.new_event_caller_telephone_number(size=20) }}
-        </p>
-        <p>
-            {{ form.new_event_caller_name.label }}
-            {{ form.new_event_caller_name(size=20) }}
-        </p>
-        <p>
-            {{ form.new_event_caller_surname.label }}
-            {{ form.new_event_caller_surname(size=20) }}
+            {{form.new_event_fw_to_police.label}}
+            {{form.new_event_fw_to_police(size=2)}}
         </p>
         <p>
             {{ form.new_event_confirm_button(size=20) }}
-
         </p>
     </form>
 

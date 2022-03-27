@@ -10,14 +10,14 @@ class Events(DB.Model):
     town = DB.Column(DB.String, nullable=False)
     street = DB.Column(DB.String)
     street_number = DB.Column(DB.Integer, nullable=False)
-    fw_to_police = DB.Column(DB.Boolean, default=False)
-    fw_to_paramedic = DB.Column(DB.Boolean, default=False)
-    fw_to_fire_service = DB.Column(DB.Boolean, default=False)
-    caller_telephone_number = DB.Column(DB.Integer, nullable=False)
-    caller_name = DB.Column(DB.String)
-    caller_surname = DB.Column(DB.String)
     description = DB.Column(DB.String)
-    archived = DB.Column(DB.Boolean, default=False)
+    fw_to_police = DB.Column(DB.Boolean, nullable=False, default=False)
+    # fw_to_paramedic = DB.Column(DB.Boolean, default=False)
+    # fw_to_fire_service = DB.Column(DB.Boolean, default=False)
+    # caller_telephone_number = DB.Column(DB.Integer, nullable=False)
+    # caller_name = DB.Column(DB.String)
+    # caller_surname = DB.Column(DB.String)
+    # archived = DB.Column(DB.Boolean, default=False)
 
 
 # class Events(DB.Model):

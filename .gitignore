@@ -1,4 +1,5 @@
 *.idea
+venv/
 __pychache__/
 flask_template/__pycache__/
 flask_template/server/__pycache__/

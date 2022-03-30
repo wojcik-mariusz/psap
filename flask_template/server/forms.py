@@ -52,9 +52,17 @@ class NewEvent(FlaskForm):
         choices=[(True, "Yes"), (False, "No")],
         coerce=lambda choice: choice == "True"
     )
-    # new_event_fw_to_paramedic = SelectField("Forward to paramedic:", choices=[(True, "Yes"), (False, "No")])
-    # new_event_fw_to_fire_service = SelectField("Forward to fire service:", choices=[(True, "Yes"), (False, "No")])
-    # new_event_caller_telephone_number = IntegerField("Telephone number:", validators=[data_required()])
-    # new_event_caller_name = StringField("Caller name:")
-    # new_event_caller_surname = StringField("Caller surname:")
+    new_event_fw_to_paramedic = SelectField(
+        "Forward to paramedic:",
+        choices=[(True, "Yes"), (False, "No")],
+        coerce=lambda choice: choice == "True"
+    )
+    new_event_fw_to_fire_service = SelectField(
+        "Forward to fire service:",
+        choices=[(True, "Yes"), (False, "No")],
+        coerce=lambda choice: choice == "True"
+    )
+    new_event_caller_telephone_number = IntegerField("Telephone number:", validators=[data_required()])
+    new_event_caller_name = StringField("Caller name:")
+    new_event_caller_surname = StringField("Caller surname:")
     new_event_confirm_button = SubmitField("Apply event")

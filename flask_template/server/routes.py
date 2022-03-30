@@ -26,12 +26,12 @@ def add_new_event():
             street=form.new_event_street.data,
             street_number=form.new_event_street_number.data,
             description=form.new_event_description.data,
-            fw_to_police=form.new_event_fw_to_police.data
-            # fw_to_paramedic=form.new_event_fw_to_paramedic.data,
-            # fw_to_fire_service=form.new_event_fw_to_fire_service.data,
-            # caller_telephone_number=form.new_event_caller_telephone_number.data,
-            # caller_name=form.new_event_caller_name.data,
-            # caller_surname=form.new_event_caller_surname.data
+            fw_to_police=form.new_event_fw_to_police.data,
+            fw_to_paramedic=form.new_event_fw_to_paramedic.data,
+            fw_to_fire_service=form.new_event_fw_to_fire_service.data,
+            caller_telephone_number=form.new_event_caller_telephone_number.data,
+            caller_name=form.new_event_caller_name.data,
+            caller_surname=form.new_event_caller_surname.data
         )
         DB.session.add(event)
         DB.session.commit()

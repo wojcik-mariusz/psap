@@ -50,7 +50,7 @@ class NewEvent(FlaskForm):
     new_event_fw_to_police = SelectField(
         "Forward to police:",
         choices=[(True, "Yes"), (False, "No")],
-        coerce=lambda choice: choice == "True",
+        coerce=lambda choice: choice == "True"
     )
     # new_event_fw_to_paramedic = SelectField("Forward to paramedic:", choices=[(True, "Yes"), (False, "No")])
     # new_event_fw_to_fire_service = SelectField("Forward to fire service:", choices=[(True, "Yes"), (False, "No")])

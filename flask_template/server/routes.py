@@ -17,8 +17,7 @@ def home():
 @SERVER_BLUEPRINT.route("/add-new-event", methods=['GET', 'POST'])
 def add_new_event():
     form = NewEvent()
-    if form.validate_on_submit():
-        print(form.new_event_fw_to_police.data)
+    if request.method == "POST":
         event = insert_new_event(
             voivodeship=form.new_event_voivodeship.data,
             district=form.new_event_district.data,
@@ -27,7 +26,7 @@ def add_new_event():
             street=form.new_event_street.data,
             street_number=form.new_event_street_number.data,
             description=form.new_event_description.data,
-            fw_to_police=form.new_event_fw_to_police.data,
+            fw_to_police=form.new_event_fw_to_police.data
             # fw_to_paramedic=form.new_event_fw_to_paramedic.data,
             # fw_to_fire_service=form.new_event_fw_to_fire_service.data,
             # caller_telephone_number=form.new_event_caller_telephone_number.data,

@@ -24,5 +24,9 @@ def get_active_paramedic_list_event() -> List[str]:
 
 
 def get_active_police_list_event() -> List[str]:
-    police_event_list = Events.query.filter(and_(Events.fw_to_police == "1", Events.archived == "0"))
+    police_event_list = Events.query.filter(and_(Events.fw_to_police == "1", Events.archived == "0")).all()
     return police_event_list
+
+def get_active_fire_service_event() -> List[str]:
+    fire_service_event_list = Events.query.filter(and_(Events.fw_to_fire_service == "1", Events.archived == "0")).all()
+    return fire_service_event_list

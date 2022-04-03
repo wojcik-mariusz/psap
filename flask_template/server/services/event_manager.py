@@ -18,6 +18,11 @@ def get_all_list_event() -> List[str]:
     return Events.query.all()
 
 
-def get_paramedic_list_event() -> List[str]:
+def get_active_paramedic_list_event() -> List[str]:
     paramedic_event_list = Events.query.filter(and_(Events.fw_to_paramedic == "1", Events.archived == "0")).all()
     return paramedic_event_list
+
+
+def get_active_police_list_event() -> List[str]:
+    police_event_list = Events.query.filter(and_(Events.fw_to_police == "1", Events.archived == "0"))
+    return police_event_list

@@ -4,7 +4,8 @@ from typing import List
 from . import SERVER_BLUEPRINT, ERROR_HANDLER_BLUEPRINT
 from flask_template.server.forms import NewEvent
 from flask_template.db import DB
-from flask_template.server.services.event_manager import insert_new_event, get_all_list_event, get_paramedic_list_event
+from flask_template.server.services.event_manager import insert_new_event, get_all_list_event, \
+    get_active_paramedic_list_event, get_active_police_list_event
 
 
 # TODO errors
@@ -41,15 +42,18 @@ def add_new_event():
 
 @SERVER_BLUEPRINT.route('/paramedic-all')
 def show_paramedic_events():
-    paramedic_events = get_paramedic_list_event()
+    paramedic_events = get_active_paramedic_list_event()
     return render_template('paramedic-show-all.html', paramedic_events=paramedic_events)
 
+
+@SERVER_BLUEPRINT.route('/police-all')
+def show_police_active_events():
+    police_active_events_list = get_active_police_list_event()
+    return render_template("police-show-all.html", police_events=police_active_events_list)
 
 @SERVER_BLUEPRINT.route('/active-events')
 def show_active_events():
     active_events = get_all_list_event()
-    print([i.street for i in active_events])
-
     return render_template('active-events.html', active_events=active_events)
 
 

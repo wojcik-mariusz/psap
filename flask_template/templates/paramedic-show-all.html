@@ -3,12 +3,83 @@
 {% block title %}
 base
 {% endblock %}
+{% block style %}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+{% endblock %}
 
 {% block body %}
 
-{% for row in paramedic_event_list %}
-    {{ row.street }}
-    {{ row.street_number }}
-{% endfor %}
+<div class="container p-5 my-5 bg-dark text-white">
+  <h1>Paramedic Events</h1>
+  <p>All active paramedic events:</p>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Voivodeship</th>
+        <th>Disctrict</th>
+        <th>Community</th>
+        <th>Town</th>
+        <th>Street</th>
+        <th>Number</th>
+        <th>Description</th>
+        <th>Caller phone number</th>
+        <th>Caller name</th>
+        <th>Caller surname</th>
+    </tr>
+    {% for row in paramedic_events %}
+        <tr>
+            <td>
+                {{row.id}}
+            </td>
+            <td>
+                {{row.voivodeship}}
+            </td>
+            <td>
+                {{row.district}}
+            </td>
+            <td>
+                {{row.community}}
+            </td>
+            <td>
+                {{row.town}}
+            </td>
+            <td>
+                {{row.street}}
+            </td>
+            <td>
+                {{row.street_number}}
+            </td>
+            <td>
+                {{row.description}}
+            </td>
+            <td>
+                {{row.caller_telephone_number}}
+            </td>
+            <td>
+                {{row.caller_name}}
+            </td>
+            <td>
+                {{row.caller_surname}}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+
 
 {% endblock %}

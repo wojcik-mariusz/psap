@@ -5,11 +5,10 @@ base
 {% endblock %}
 
 {% block body %}
-<div class="container p-5 my-5 bg-dark text-white">
-  <h1>Paramedic events</h1>
-  <p>This is some text.</p>
-</div>
-{% for row in paramedic_events %}
-{{ print("ID:", row.id, "Voivodeship", row.new_event_voivodeship, "District:", row.new_event_district) }}
+
+{% for row in paramedic_event_list %}
+    {{ row.street }}
+    {{ row.street_number }}
 {% endfor %}
+
 {% endblock %}

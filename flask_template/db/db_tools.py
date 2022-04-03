@@ -1,5 +1,7 @@
 from . import DB
 
+# dir should be named 'Models'
+
 
 class Events(DB.Model):
     id = DB.Column(DB.Integer, primary_key=True)

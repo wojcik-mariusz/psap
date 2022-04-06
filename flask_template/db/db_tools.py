@@ -22,13 +22,16 @@ class Events(DB.Model):
     archived = DB.Column(DB.Boolean, default=False)
 
 
-# class Events(DB.Model):
+# class Event(DB.Model):
 #     id = DB.Column(DB.Integer, primary_key=True)
 #     event_date = DB.Column(DB.DateTime, nullable=False)
 #     description = DB.Column(DB.String)
 #     archived = DB.Column(DB.Boolean)
-
-#     # TODO Create new tb for that
+#
+#
+# class EventService(DB.Model):
+#     id = DB.Column(DB.Integer, primary_key=True)
+#     event_id = DB.Column(DB.Integer, )
 #     fw_to_police = DB.Column(DB.Boolean)
 #     fw_to_paramedic = DB.Column(DB.Boolean)
 #     fw_to_fire_service = DB.Column(DB.Boolean)

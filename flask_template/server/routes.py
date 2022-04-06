@@ -1,4 +1,4 @@
-from flask import render_template, make_response, request
+from flask import render_template, make_response, request, flash
 from typing import List
 
 from . import SERVER_BLUEPRINT, ERROR_HANDLER_BLUEPRINT
@@ -36,6 +36,7 @@ def add_new_event():
         )
         DB.session.add(event)
         DB.session.commit()
+        flash("Event added succesfully.")
 
     return render_template("add-new-event.html", form=form)
 

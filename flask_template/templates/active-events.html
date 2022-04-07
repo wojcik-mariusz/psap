@@ -28,26 +28,27 @@ tr:nth-child(even) {
   <p>All events:</p>
 </div>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Voivodeship</th>
-        <th>Disctrict</th>
-        <th>Community</th>
-        <th>Town</th>
-        <th>Street</th>
-        <th>Number</th>
-        <th>Description</th>
-        <th>Caller phone number</th>
-        <th>Caller name</th>
-        <th>Caller surname</th>
-        <th>Archived</th>
-    </tr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Voivodeship</th>
+            <th>Disctrict</th>
+            <th>Community</th>
+            <th>Town</th>
+            <th>Street</th>
+            <th>Number</th>
+            <th>Description</th>
+            <th>Caller phone number</th>
+            <th>Caller name</th>
+            <th>Caller surname</th>
+            <th>Archived</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for row in active_events %}
         <tr>
-            <td>
-                {{row.id}}
-            </td>
+            <th scope="row">{{row.id}}</th>
             <td>
                 {{row.voivodeship}}
             </td>
@@ -87,6 +88,7 @@ tr:nth-child(even) {
             </td>
         </tr>
     {% endfor %}
+    </tbody>
 </table>
 
 

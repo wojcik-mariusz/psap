@@ -5,7 +5,8 @@ from . import SERVER_BLUEPRINT, ERROR_HANDLER_BLUEPRINT
 from flask_template.server.forms import NewEvent
 from flask_template.db import DB
 from flask_template.server.services.event_manager import insert_new_event, get_all_list_event, \
-    get_active_paramedic_list_event, get_active_police_list_event, get_active_fire_service_event
+    get_active_paramedic_list_event, get_active_police_list_event, get_active_fire_service_event, \
+    delete_event
 
 
 # TODO errors
@@ -62,7 +63,8 @@ def show_fire_service_active_events():
 @SERVER_BLUEPRINT.route('/active-events')
 def show_active_events():
     active_events = get_all_list_event()
-    return render_template('active-events.html', active_events=active_events)
+    delete_event = delete_event
+    return render_template('active-events.html', active_events=active_events, delete_event=delete_event)
 
 
 @ERROR_HANDLER_BLUEPRINT.errorhandler(404)

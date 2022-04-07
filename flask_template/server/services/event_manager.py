@@ -6,12 +6,16 @@ from datetime import datetime
 
 from flask_template.db.db_tools import Events
 
-from sqlalchemy import and_
+from sqlalchemy import and_, delete
 
 
 def insert_new_event(**kwargs) -> NoReturn:
     """TODD in Sphinx format"""
     return Events(event_date=datetime.now(), **kwargs)
+
+
+def delete_event(event_id: int) -> NoReturn:
+    Events.query.get(event_id).delete()
 
 
 def get_all_list_event() -> List[str]:

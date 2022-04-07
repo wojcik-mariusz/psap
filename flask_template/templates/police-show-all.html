@@ -41,6 +41,8 @@ tr:nth-child(even) {
         <th>Caller phone number</th>
         <th>Caller name</th>
         <th>Caller surname</th>
+        <th>Archived</th>
+        <th>Action</th>
     </tr>
     {% for row in police_events %}
         <tr>
@@ -76,6 +78,22 @@ tr:nth-child(even) {
             </td>
             <td>
                 {{row.caller_surname}}
+            </td>
+            <td>
+                {% if row.archived == 0 %}
+                    No
+                {% else %}
+                    Yes
+                {% endif %}
+            </td>
+            <td>
+                {% if row.archived == 0 %}
+                    <button type="button" class="btn btn-warning">Archive</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                {% else %}
+                    <button type="button" class="btn btn-warning">Back to active </button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}

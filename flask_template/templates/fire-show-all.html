@@ -80,7 +80,7 @@ tr:nth-child(even) {
                 {{row.caller_surname}}
             </td>
             <td>
-                {% if row.archived == 0 %}
+                {% if not row.archived %}
                     No
                 {% else %}
                     Yes

@@ -87,7 +87,7 @@ tr:nth-child(even) {
                 {% endif %}
             </td>
             <td>
-                {% if row.archived == 0 %}
+                {% if not row.archived %}
                     <button type="button" class="btn btn-warning">Archive</button>
                     <button type="button" class="btn btn-danger">Delete</button>
                 {% else %}

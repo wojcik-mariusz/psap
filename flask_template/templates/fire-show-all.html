@@ -30,7 +30,7 @@ tr:nth-child(even) {
 
 <table>
     <tr>
-        <th>ID</th>
+        <th>Date</th>
         <th>Voivodeship</th>
         <th>Disctrict</th>
         <th>Community</th>
@@ -46,9 +46,9 @@ tr:nth-child(even) {
     </tr>
     {% for row in fire_service_events %}
         <tr>
-            <td>
-                {{row.id}}
-            </td>
+            <th scope="row">
+                {{row.event_date.replace(microsecond=0)}}
+            </th>
             <td>
                 {{row.voivodeship}}
             </td>

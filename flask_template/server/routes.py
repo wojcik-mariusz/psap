@@ -63,8 +63,7 @@ def show_fire_service_active_events():
 @SERVER_BLUEPRINT.route('/active-events')
 def show_active_events():
     active_events = get_all_list_event()
-    delete_event = delete_event
-    return render_template('active-events.html', active_events=active_events, delete_event=delete_event)
+    return render_template('active-events.html', active_events=active_events)
 
 
 @ERROR_HANDLER_BLUEPRINT.errorhandler(404)

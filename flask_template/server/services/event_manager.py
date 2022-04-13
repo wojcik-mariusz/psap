@@ -18,7 +18,7 @@ def delete_event(event_id: int) -> NoReturn:
 
 
 def get_all_list_event() -> List[str]:
-    pass
+    return Event.query.order_by(Event.event_date).all()
 
 
 def get_active_paramedic_list_event() -> List[str]:

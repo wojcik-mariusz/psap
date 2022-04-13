@@ -49,36 +49,36 @@ tr:nth-child(even) {
     <tbody>
     {% for row in active_events %}
         <tr>
-            <th scope="row">{{row.event_date.replace(microsecond=0)}}</th>
+            <th scope="row">{{row.event_date}}</th>
             <td>
                 {{row.voivodeship}}
             </td>
             <td>
-                {{row.district}}
+                {{row.event_address.district}}
             </td>
             <td>
-                {{row.community}}
+                {{row.event_address.community}}
             </td>
             <td>
-                {{row.town}}
+                {{row.event_address.town}}
             </td>
             <td>
-                {{row.street}}
+                {{row.event_address.street}}
             </td>
             <td>
-                {{row.street_number}}
+                {{row.event_address.street_number}}
             </td>
             <td>
                 {{row.description}}
             </td>
             <td>
-                {{row.caller_telephone_number}}
+                {{row.event_reporter.caller_telephone_number}}
             </td>
             <td>
-                {{row.caller_name}}
+                {{row.event_reporter.caller_name}}
             </td>
             <td>
-                {{row.caller_surname}}
+                {{row.event_reporter.caller_surname}}
             </td>
             <td>
                 {% if row.archived == 0 %}

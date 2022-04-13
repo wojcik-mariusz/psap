@@ -6,7 +6,7 @@ from typing import List
 from . import SERVER_BLUEPRINT, ERROR_HANDLER_BLUEPRINT
 from flask_template.server.forms import NewEvent
 from flask_template.db import DB
-from flask_template.server.services.event_manager import insert_new_event
+from flask_template.server.services.event_manager import get_all_list_event
 from flask_template.db.db_tools import Event, EventService, EventReporter, EventAddress
 
 
@@ -22,8 +22,7 @@ def add_new_event():
     form = NewEvent()
     if request.method == "POST":
         event = Event(
-            event_date=datetime.datetime.now().replace(microsecond=0),
-            description = form.new_event_description.data
+            description=form.new_event_description.data
         )
         address = EventAddress(
             voivodeship=form.new_event_voivodeship.data,
@@ -74,10 +73,11 @@ def add_new_event():
 #     return render_template("fire-show-all.html", fire_service_events=fire_service_active_events_list)
 #
 #
-# @SERVER_BLUEPRINT.route('/active-events')
-# def show_active_events():
-#     active_events = get_all_list_event()
-#     return render_template('active-events.html', active_events=active_events)
+@SERVER_BLUEPRINT.route('/active-events')
+def show_active_events():
+    active_events = get_all_list_event()
+    print(type(active_events[0].event_address))
+    return render_template('active-events.html', active_events=active_events)
 
 
 @ERROR_HANDLER_BLUEPRINT.errorhandler(404)

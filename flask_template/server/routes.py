@@ -45,10 +45,7 @@ def add_new_event():
         event.event_address.append(address)
         event.event_service.append(service)
         event.event_reporter.append(reporter)
-        DB.session.add(event)
-        DB.session.add(address)
-        DB.session.add(service)
-        DB.session.add(reporter)
+        DB.session.add_all([event, address, service, reporter])
         DB.session.commit()
         flash("Event added succesfully.")
 
@@ -76,7 +73,6 @@ def add_new_event():
 @SERVER_BLUEPRINT.route('/active-events')
 def show_active_events():
     active_events = get_all_list_event()
-    print(type(active_events[0].event_address))
     return render_template('active-events.html', active_events=active_events)
 
 

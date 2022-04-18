@@ -6,7 +6,8 @@ from typing import List
 from . import SERVER_BLUEPRINT, ERROR_HANDLER_BLUEPRINT
 from flask_template.server.forms import NewEvent
 from flask_template.db import DB
-from flask_template.server.services.event_manager import get_all_list_event, get_active_paramedic_list_event
+from flask_template.server.services.event_manager import get_all_list_event, get_active_paramedic_list_event, \
+    get_active_police_list_event
 from flask_template.db.db_tools import Event, EventService, EventReporter, EventAddress
 
 
@@ -58,12 +59,12 @@ def show_paramedic_events():
     paramedic_events: List[str] = get_active_paramedic_list_event()
     print(paramedic_events[0].event.description)
     return render_template('paramedic-show-all.html', paramedic_events=paramedic_events)
-#
-#
-# @SERVER_BLUEPRINT.route('/police-all')
-# def show_police_active_events():
-#     police_active_events_list = get_active_police_list_event()
-#     return render_template("police-show-all.html", police_events=police_active_events_list)
+
+
+@SERVER_BLUEPRINT.route('/police-all')
+def show_police_active_events():
+    police_active_events_list = get_active_police_list_event()
+    return render_template("police-show-all.html", police_events=police_active_events_list)
 #
 #
 # @SERVER_BLUEPRINT.route('/fire-all')

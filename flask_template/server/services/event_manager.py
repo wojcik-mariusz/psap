@@ -25,7 +25,7 @@ def get_active_paramedic_list_event() -> List[str]:
 
 
 def get_active_police_list_event() -> List[str]:
-    pass
+    return EventService.query.filter(EventService.fw_to_police == 1).all()
 
 
 def get_active_fire_service_event() -> List[str]:

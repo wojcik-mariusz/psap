@@ -47,37 +47,37 @@ tr:nth-child(even) {
     {% for row in police_events %}
         <tr>
             <th scope="row">
-                {{row.event_date.replace(microsecond=0)}}
+                {{row.event.event_date}}
             </th>
             <td>
-                {{row.voivodeship}}
+                {{row.event.event_address.first().voivodeship}}
             </td>
             <td>
-                {{row.district}}
+                {{row.event.event_address.first().district}}
             </td>
             <td>
-                {{row.community}}
+                {{row.event.event_address.first().community}}
             </td>
             <td>
-                {{row.town}}
+                {{row.event.event_address.first().town}}
             </td>
             <td>
-                {{row.street}}
+                {{row.event.event_address.first().street}}
             </td>
             <td>
-                {{row.street_number}}
+                {{row.event.event_address.first().street_number}}
             </td>
             <td>
-                {{row.description}}
+                {{row.event.description}}
             </td>
             <td>
-                {{row.caller_telephone_number}}
+                {{row.event.event_reporter.first().caller_telephone_number}}
             </td>
             <td>
-                {{row.caller_name}}
+                {{row.event.event_reporter.first().caller_name}}
             </td>
             <td>
-                {{row.caller_surname}}
+                {{row.event.event_address.first().caller_surname}}
             </td>
             <td>
                 {% if not row.archived %}

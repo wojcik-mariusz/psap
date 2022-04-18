@@ -1,10 +1,9 @@
 from typing import NoReturn
-from datetime import datetime
 
 from typing import NoReturn, List
 from datetime import datetime
 
-from flask_template.db.db_tools import Event
+from flask_template.db.db_tools import Event, EventService
 
 from sqlalchemy import and_, delete
 
@@ -22,7 +21,7 @@ def get_all_list_event() -> List[str]:
 
 
 def get_active_paramedic_list_event() -> List[str]:
-    pass
+    return EventService.query.filter(EventService.fw_to_paramedic == 1).all()
 
 
 def get_active_police_list_event() -> List[str]:

@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship
 
 class Event(DB.Model):
     id = DB.Column(DB.Integer, primary_key=True)
-    event_date = DB.Column(DB.DateTime, nullable=False, default=datetime.datetime.now().replace(microsecond=0))
+    event_date = DB.Column(DB.DateTime, nullable=False)
     description = DB.Column(DB.String)
     archived = DB.Column(DB.Boolean, default=0)
     event_address = relationship("EventAddress", backref="event", lazy="dynamic")

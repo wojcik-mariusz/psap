@@ -57,7 +57,6 @@ def add_new_event():
 @SERVER_BLUEPRINT.route('/paramedic-all')
 def show_paramedic_events():
     paramedic_events: List[str] = get_active_paramedic_list_event()
-    print(paramedic_events[0].event.description)
     return render_template('paramedic-show-all.html', paramedic_events=paramedic_events)
 
 

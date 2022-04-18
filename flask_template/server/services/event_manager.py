@@ -2,10 +2,12 @@ from typing import NoReturn
 
 from typing import NoReturn, List
 from datetime import datetime
-
-from flask_template.db.db_tools import Event, EventService
-
 from sqlalchemy import and_, delete
+
+from flask_template.db.db_tools import Event, EventService, DB
+
+
+
 
 
 def insert_new_event(**kwargs):
@@ -30,3 +32,10 @@ def get_active_police_list_event() -> List[str]:
 
 def get_active_fire_service_event() -> List[str]:
     return EventService.query.filter(EventService.fw_to_fire_service == 1).all()
+
+
+def set_event_as_archived(event_id: int):
+    event = Event.query.filter(Event.id == event_id)
+    if event:
+        event.archived = 1
+        DB.session.commit()

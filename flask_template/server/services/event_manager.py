@@ -7,15 +7,15 @@ from sqlalchemy import and_, delete
 from flask_template.db.db_tools import Event, EventService, DB
 
 
-
-
-
 def insert_new_event(**kwargs):
     pass
 
 
 def delete_event(event_id: int) -> NoReturn:
-    pass
+    event = Event.query.filter(Event.id == event_id).first()
+    if event:
+        event.delete()
+        DB.session.commit()
 
 
 def get_all_list_event() -> List[str]:
@@ -34,7 +34,7 @@ def get_active_fire_service_event() -> List[str]:
     return EventService.query.filter(EventService.fw_to_fire_service == 1).all()
 
 
-def set_event_as_archived(event_id: int):
+def set_event_as_archived(event_id: int) -> NoReturn:
     event = Event.query.filter(Event.id == event_id)
     if event:
         event.archived = 1

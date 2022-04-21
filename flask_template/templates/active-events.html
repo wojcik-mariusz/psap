@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}
+All Events
+{% endblock %}
+{% block style %}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+{% endblock %}
+
+{% block body %}
+
+<div class="container p-5 my-5 bg-dark text-white">
+  <h1>All Events</h1>
+  <p>All events:</p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Voivodeship</th>
+            <th>Disctrict</th>
+            <th>Community</th>
+            <th>Town</th>
+            <th>Street</th>
+            <th>Number</th>
+            <th>Description</th>
+            <th>Caller phone number</th>
+            <th>Caller name</th>
+            <th>Caller surname</th>
+            <th>Archived</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in active_events %}
+        <tr>
+            <th scope="row">{{row.event_date}}</th>
+            <td>
+                {{row.event_address.first().voivodeship}}
+            </td>
+            <td>
+                {{row.event_address.first().district}}
+            </td>
+            <td>
+                {{row.event_address.first().community}}
+            </td>
+            <td>
+                {{row.event_address.first().town}}
+            </td>
+            <td>
+                {{row.event_address.first().street}}
+            </td>
+            <td>
+                {{row.event_address.first().street_number}}
+            </td>
+            <td>
+                {{row.description}}
+            </td>
+            <td>
+                {{row.event_reporter.first().caller_telephone_number}}
+            </td>
+            <td>
+                {{row.event_reporter.first().caller_name}}
+            </td>
+            <td>
+                {{row.event_reporter.first().caller_surname}}
+            </td>
+            <td>
+                {% if row.archived == 0 %}
+                    No
+                {% else %}
+                    Yes
+                {% endif %}
+            </td>
+            <td>
+                {% if not row.archived %}
+                    <button type="button" class="btn btn-warning">Archive</button>
+                    <a href="/delete-event/{{row.id}}" class="btn btn-danger">Delete</a>
+                {% else %}
+                    <button type="button" class="btn btn-warning">Back to active </button>
+                    <a href="/delete-event/{{row.id}}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

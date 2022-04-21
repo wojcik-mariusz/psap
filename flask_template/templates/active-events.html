@@ -90,10 +90,10 @@ tr:nth-child(even) {
             <td>
                 {% if not row.archived %}
                     <button type="button" class="btn btn-warning">Archive</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <a href="/delete-event/{{row.id}}" class="btn btn-danger">Delete</a>
                 {% else %}
                     <button type="button" class="btn btn-warning">Back to active </button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <a href="/delete-event/{{row.id}}" class="btn btn-danger">Delete</a>
                 {% endif %}
             </td>
         </tr>

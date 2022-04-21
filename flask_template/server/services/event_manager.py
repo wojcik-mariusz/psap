@@ -12,10 +12,7 @@ def insert_new_event(**kwargs):
 
 
 def delete_event(event_id: int) -> NoReturn:
-    event = Event.query.filter(Event.id == event_id).first()
-    if event:
-        event.delete()
-        DB.session.commit()
+    pass
 
 
 def get_all_list_event() -> List[str]:
@@ -39,3 +36,8 @@ def set_event_as_archived(event_id: int) -> NoReturn:
     if event:
         event.archived = 1
         DB.session.commit()
+
+
+
+def save_into_db(): pass
+    # save_into_events(form)

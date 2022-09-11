@@ -31,5 +31,5 @@ Features:
 ## Setup
 To run this project use the following command:
 ```
-$ docker-compose up
+$ python run.py
 ```

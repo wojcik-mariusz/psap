@@ -29,5 +29,7 @@ Features:
 </details>
 
 ## Setup
-<setup>
-In progres...
+To run this project use the following command:
+```
+$ docker-compose up
+```

@@ -7,7 +7,7 @@ from . import SERVER_BLUEPRINT, ERROR_HANDLER_BLUEPRINT
 from flask_template.server.forms import NewEvent
 from flask_template.db import DB
 from flask_template.server.services.event_manager import get_all_list_event, get_active_paramedic_list_event, \
-    get_active_police_list_event, get_active_fire_service_event, delete_event
+    get_active_police_list_event, get_active_fire_service_event, get_event_by_id
 from flask_template.db.db_tools import Event, EventService, EventReporter, EventAddress
 
 
@@ -55,12 +55,14 @@ def add_new_event():
 
     return render_template("add-new-event.html", form=form)
 
-#TODO
+
 @SERVER_BLUEPRINT.route('/delete-event/<int:event_id>')
 def del_event(event_id):
-    delete_event(event_id=event_id)
+    event_to_delete = get_event_by_id(event_id=event_id)
+    DB.session.delete(event_to_delete)
+    DB.session.commit()
     flash("Event deleted.")
-    return redirect(url_for("show_active_events"))
+    return redirect(url_for("server_blueprint.show_active_events"))
 
 
 @SERVER_BLUEPRINT.route('/paramedic-all')

@@ -1,8 +1,5 @@
-from typing import NoReturn
-
 from typing import NoReturn, List
-from datetime import datetime
-from sqlalchemy import and_, delete
+
 
 from flask_template.db.db_tools import Event, EventService, DB
 
@@ -32,8 +29,3 @@ def set_event_as_archived(event_id: int) -> NoReturn:
     if event:
         event.archived = 1
         DB.session.commit()
-
-
-
-def save_into_db(): pass
-    # save_into_events(form)

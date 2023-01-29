@@ -7,12 +7,8 @@ from sqlalchemy import and_, delete
 from flask_template.db.db_tools import Event, EventService, DB
 
 
-def insert_new_event(**kwargs):
-    pass
-
-
-def delete_event(event_id: int) -> NoReturn:
-    pass
+def get_event_by_id(event_id):
+    return Event.query.filter(Event.id == event_id).first()
 
 
 def get_all_list_event() -> List[str]:
